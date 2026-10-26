@@ -1,0 +1,21 @@
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tm-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 14px; align-items: start; }
+@media (max-width: 860px) { .tm-grid { grid-template-columns: minmax(0, 1fr); } }
+#names { min-height: 260px; }
+.small-ta { min-height: 90px; }
+.teams { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.team { border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); border-top: 4px solid var(--tc, var(--accent)); padding: 12px 14px; animation: s3-pop 320ms var(--ease-spring) both; }
+.team h3 { margin: 0 0 2px; font-size: 15px; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.team h3 small { color: var(--text-3); font-weight: 550; font-size: 12px; white-space: nowrap; }
+.team ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 3px; }
+.team li { overflow-wrap: anywhere; }
+.team li .sk { color: var(--text-3); font-size: 12px; margin-left: 6px; font-variant-numeric: tabular-nums; }
+
+@media print {
+  .s3-main { padding: 0; }
+  .tm-grid { display: block; }
+  .card { border: 0; box-shadow: none; padding: 0; background: #fff; }
+  .teams { grid-template-columns: repeat(3, 1fr); }
+  .team { background: #fff; border: 1px solid #ccc; border-top: 4px solid var(--tc); color: #000; break-inside: avoid; animation: none; }
+  .team li .sk, .team h3 small { color: #555; }
+}
